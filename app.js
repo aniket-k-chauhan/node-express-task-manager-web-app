@@ -9,7 +9,7 @@ const { users } = require("./user");
 const { authUser } = require("./auth/basicAuth");
 
 const app = express();
-const port = 8000;
+const port = 3000;
 
 app.use(express.json()); // application/json data
 app.use(express.urlencoded({ extended: true })); // form data
