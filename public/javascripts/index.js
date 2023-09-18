@@ -91,7 +91,7 @@ editForm.addEventListener("submit", (event) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ currentUser }),
+    body: JSON.stringify({ currentUser, status: status.value }),
   })
     .then((res) =>
       res.json().then((data) => {
