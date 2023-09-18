@@ -1,0 +1,31 @@
+// Modal
+#staticBackdrop2.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdrop2Label' aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h1#staticBackdrop2Label.modal-title.fs-5 Edit Task
+      .modal-body
+        //- Edit Form
+        form(id="editForm") 
+            label(for="taskId") Task Id
+            input(type="text", name="taskId", id="taskId" disabled)
+
+            label(for="task") Task
+            input(type="text", name="task", id="editTask", pattern="[a-zA-Z0-9/\s]+" title="Only AlphaNumeric characters and Space is Allowed" required disabled)
+
+            label(for="description") Description
+            textarea(id="editDescription" name="description", cols="30", rows="5" disabled)
+
+            label(for="status") Status
+            select(id="editStatus", name="status")
+                option(value="Not Started" selected) Not Started
+                option(value="In Progress") In Progress 
+                option(value="Completed") Completed
+
+            label(for="assignee") Assignee
+            select(id="editAssignee", name="assignee" required disabled)
+              each user in users
+                option(value=`${user.name}`) #{user.name} 
+      .modal-footer
+        button.btn.btn-secondary(type='reset' form="editForm" data-bs-dismiss='modal') Close
+        button.btn.btn-primary(type='submit' form="editForm") Edit

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    header 
+        section(id="updateUser")
+            select(id="currentUser", name="currentUser")
+                each user in users
+                    option(value=`${user.name}`) #{user.name} 
+            input(type="button", value="Set User" class="btn btn-primary" onclick="saveUser()")
+        h1 Welcome,&nbsp;
+            span(id="displayUserName")
+
+        section 
+            p Select User from above provided dropdown list and try to perform Add/Edit/Delete task operation.
+            p Only Admin user has all rights. So any other user will not be able to perfrom any operations. 
+    main 
+        section 
+            include modal_add_form.pug 
+            include modal_edit_form.pug
+        section(id="addBtnSection") 
+            button(type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="addTaskBtn") New Task
+            button(type="button" class="btn btn-primary invisible" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="editTaskBtn") Edit
+        table(id="taskTable") 
+            tr 
+                th Id 
+                th Task 
+                th Description 
+                th Status 
+                th Assignee 
+                th(colspan="2") Update 
+            if allTasks.length
+                each task in allTasks
+                    tr
+                        td= task.id
+                        td= task.task
+                        td= task.description
+                        td= task.status
+                        td= task.assignee
+                        td 
+                            button(type="button" class="btn btn-primary" onclick="handleEditTask(" + task.id + ")") EDIT
+                        td
+                            button(type="button" class="btn btn-danger" onclick="deleteTask(" + task.id + ")") DELETE
+            else
+                tr 
+                    td(colspan="7" id="noData") NO TASK

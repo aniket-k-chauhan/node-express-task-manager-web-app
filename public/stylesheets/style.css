@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 8px 0px;
+    font-size: 48px;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#addBtnSection {
+    margin: 8px 0px;
+}
+
+#taskTable tr>td {
+    padding: 8px;
+}
+
+#taskTable tr>th {
+    text-align: center;
+    padding: 8px;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+#noData {
+    text-align: center;
+}
+
+#updateUser {
+    margin: 48px 0px 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#updateUser input {
+    margin: 0px 8px;
+}
+
+#error {
+    margin-top: 48px;
+}

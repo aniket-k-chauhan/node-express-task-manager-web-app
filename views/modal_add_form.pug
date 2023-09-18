@@ -1,0 +1,29 @@
+// Modal
+#staticBackdrop.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h1#staticBackdropLabel.modal-title.fs-5 Add Task
+      .modal-body
+        //- Add Form
+        form(id="addForm") 
+            label(for="task") Task
+            input(type="text", name="task", id="task", pattern="[a-zA-Z0-9/\s]+" title="Only AlphaNumeric characters and Space is Allowed" required)
+
+            label(for="description") Description
+            textarea(id="description" name="description", cols="30", rows="5")
+
+            label(for="status") Status
+            select(id="status", name="status")
+                option(value="Not Started" selected) Not Started
+                option(value="In Progress") In Progress 
+                option(value="Completed") Completed
+
+            label(for="assignee") Assignee
+            select(id="assignee", name="assignee" required)
+              each user in users
+                option(value=`${user.name}`) #{user.name} 
+            input(type="hidden", name="currentUser", id="currentUser")
+      .modal-footer
+        button.btn.btn-secondary(type='reset' form="addForm", data-bs-dismiss='modal') Close
+        button.btn.btn-primary(type='submit', form="addForm", id="modalSubmitBtn") Add

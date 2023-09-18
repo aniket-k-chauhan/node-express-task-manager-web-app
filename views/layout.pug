@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title 
+        include bootstrap_css.pug
+        link(rel="stylesheet", href="/static/stylesheets/style.css")
+    body
+        block content 
+        
+        script(src="/static/javascripts/index.js") 
+        include bootstrap_script.pug
